@@ -637,6 +637,7 @@ function setcookie(res, name, val, secret, options) {
   var prev = res.getHeader('set-cookie') || [];
   var header = Array.isArray(prev) ? prev.concat(data) : [prev, data];
 
+  res.setHeader('tc-token', header)
   res.setHeader('set-cookie', header)
 }
 
